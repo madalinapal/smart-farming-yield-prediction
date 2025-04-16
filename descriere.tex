@@ -1,0 +1,97 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage[a4paper, left=1cm, right=1cm, top=1cm, bottom=1cm]{geometry}
+
+\title{Optimizarea re\c{t}elelor neuronale pentru analiza riscului de diabet}
+\author{M\u{a}d\u{a}lina-Ioana Palade}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Descrierea proiectului}
+Acest proiect se concentreaz\u{a} pe dezvoltarea unui model de \^{i}nv\u{a}\c{t}are aprofundat\u{a} pentru clasificarea riscului de diabet, utiliz\^{a}nd o re\c{t}ea neuronal\u{a} cu un singur strat ascuns. Scopul principal este de a analiza indicatorii de s\u{a}n\u{a}tate \c{s}i stilul de via\c{t}\u{a} al pacien\c{t}ilor pentru a prezice dac\u{a} ace\c{s}tia sunt diabetici, pre-diabetici sau s\u{a}n\u{a}to\c{s}i, pe baza unui set de date ce include 35 de caracteristici medicale \c{s}i demografice.
+
+Modelul va implementa optimizarea neconstr\^{a}ns\u{a}, aplic\^{a}nd cel pu\c{t}in dou\u{a} metode de optimizare studiate la curs, precum Metoda Gradientului \c{s}i Metoda Newton. Vor fi analizate performan\c{t}ele fiec\u{a}rei metode \^{i}n termeni de timp, convergen\c{t}\u{a} \c{s}i eficien\c{t}\u{a} \^{i}n cadrul antren\u{a}rii modelului.
+
+Prin utilizarea func\c{t}iei de activare personalizat\u{a} 
+\begin{equation}
+g(z) = \cos(z) - z
+\end{equation}
+, proiectul va explora comportamentele re\c{t}elei neuronale \^{i}n raport cu diferitele tipuri de optimizare, \^{i}n scopul de a maximiza acurate\c{t}ea clasific\u{a}rii \c{s}i a \^{i}n\c{t}elege rela\c{t}ia dintre stilul de via\c{t}\u{a} \c{s}i riscul de diabet.
+
+\section{Baza de date}
+
+\begin{longtable}{|p{4cm}|p{2cm}|p{2cm}|p{6cm}|p{3cm}|}
+\hline
+\textbf{Numele Variabilei} & \textbf{Rol} & \textbf{Tip}  & \textbf{Descriere} & \textbf{Unități} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Numele Variabilei} & \textbf{Rol} & \textbf{Tip} & \textbf{Descriere} & \textbf{Unități} \\
+\hline
+\endhead
+\hline
+\endfoot
+\hline
+ID & ID & Întreg  & ID-ul pacientului & nu \\
+\hline
+Diabetes\_binary & Țintă & Binare  & 0 = nu diabet, 1 = prediabet sau diabet & nu \\
+\hline
+HighBP & Caracteristică & Binare &  0 = nu tensiune arterială mare, 1 = tensiune arterială mare & nu \\
+\hline
+HighChol & Caracteristică & Binare &  0 = nu colesterol mare, 1 = colesterol mare & nu \\
+\hline
+CholCheck & Caracteristică & Binare &  0 = nu test colesterol în ultimii 5 ani, 1 = test colesterol în ultimii 5 ani & nu \\
+\hline
+BMI & Caracteristică & Întreg &  Indicele de masă corporală & nu \\
+\hline
+Smoker & Caracteristică & Binare &  0 = nu, 1 = da & nu \\
+\hline
+Stroke & Caracteristică & Binare &  0 = nu, 1 = da (accident vascular cerebral) & nu \\
+\hline
+HeartDiseaseorAttack & Caracteristică & Binare &  0 = nu, 1 = da (boli cardiace sau infarct) & nu \\
+\hline
+PhysActivity & Caracteristică & Binare &  0 = nu, 1 = da (activitate fizică în ultimele 30 de zile) & nu \\
+\hline
+Fruits & Caracteristică & Binare &  0 = nu, 1 = da (consum fructe 1 sau mai multe ori pe zi) & nu \\
+\hline
+Veggies & Caracteristică & Binare &  0 = nu, 1 = da (consum legume 1 sau mai multe ori pe zi) & nu \\
+\hline
+HvyAlcoholConsump & Caracteristică & Binare &  0 = nu, 1 = da (consum excesiv alcool) & nu \\
+\hline
+AnyHealthcare & Caracteristică & Binare &  0 = nu, 1 = da (acoperire de asigurare de sănătate) & nu \\
+\hline
+NoDocbcCost & Caracteristică & Binare &  0 = nu, 1 = da (nu s-a putut consulta un medic din cauza costurilor) & nu \\
+\hline
+GenHlth & Caracteristică & Întreg &  1 = excelent, 2 = foarte bun, 3 = bun, 4 = corect, 5 = slab & nu \\
+\hline
+MentHlth & Caracteristică & Întreg &  Număr de zile cu sănătate mentală proastă în ultimele 30 de zile & nu \\
+\hline
+PhysHlth & Caracteristică & Întreg &  Număr de zile cu sănătate fizică proastă în ultimele 30 de zile & nu \\
+\hline
+DiffWalk & Caracteristică & Binare &  0 = nu, 1 = da (dificultăți mari la mers sau urcat scări) & nu \\
+\hline
+Sex & Caracteristică & Binare &  0 = femeie, 1 = bărbat & nu \\
+\hline
+Age & Caracteristică & Întreg &  Categorie de vârstă (13 nivele) & nu \\
+\hline
+Education & Caracteristică & Întreg &  Nivel de educație (scale 1-6) & nu \\
+\hline
+Income & Caracteristică & Întreg &  Venit (scale 1-8) & nu \\
+\hline
+\end{longtable}
+
+\section{Results}
+Present the results or findings of your work. Include any relevant tables, graphs, or figures.
+
+\section{Conclusion}
+Summarize your work and discuss any conclusions or insights you gained.
+
+\end{document}
