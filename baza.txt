@@ -1,0 +1,28 @@
+BAZA DE DATE - SMART FARMING SENSOR DATA FOR YIELD PREDICTION
+
+Aceasta baza de date simulează operațiuni reale de agricultura inteligenta alimentate de senzori IoT și date satelitare. Capturează variabile de mediu și operaționale care afectează randamentul culurilor pe 500 de ferme situate în regiuni precum India, SUA și Africa.
+
+Descrierea coloanelor:
+
+1. farm_id - unic pentru fiecare ferma inteligenta - FARM0001  !!!!!!OUT!!!!!
+2. region - north India, south use etc  --- CATEGORIC----
+3. crop_type: wheat, rice, maize, cotton, soybean   ------CATEGORIC------
+4. soil_moisture_% : soil moisture content in percentage
+5. soil_ph - soil pH level (5.5 - 7.5 typical range)
+6. temperature_C - average temperature During crop cycle (Celsius)
+7. rainfall_mm - total rainfall received in mm
+8. humidity_ - average humidity level in percentage
+9. sunlight_hours - average sunlight hours received per day
+10. irrigation_type - type of irrigation: drip, sprinkler, manual, none -----CATEGORIC----
+11. fertilizer_type - fertilizer used: organic, inorganic, mixed ------CATEGORIC-------
+12. pesticide_usage_ml - daily pesticide usage in millilitres
+13. sowing_data - date when crop was sown !!!!!!! OUT !!!!!!!
+14. harvest_date - Date when crop was harvested   !!!!!!!! OUT !!!!!!
+15. total_days	Crop growth duration (harvest - sowing)
+16. yield_kg_per_hectare - TARGET VARIABLE: Crop yield in kilograms per hectare
+17. sensor_id - ID of the IoT sensor reporting the data       !!!!! OUT !!!!!!
+18. timestamp - Random in-cycle timestamp when the data snapshot was recorded
+19. latitude - Farm location latitude (10.0 - 35.0 range)
+20. longitude - Farm location longitude (70.0 - 90.0 range)
+21. NDVI_index - Normalized Difference Vegetation Index (0.3 - 0.9)
+22. crop_disease_status - Crop disease status: None, Mild, Moderate, Severe ------ CATEGORIC -------
