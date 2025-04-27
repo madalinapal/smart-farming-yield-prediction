@@ -45,7 +45,7 @@ function [X, x_star, errors, norms, times] = gradient_descent(A, e, m, ...
         norms(iter) = norm([dL_dX(:); dL_dx_star]);  % Combined gradient norm
 
         % Progress reporting
-        if mod(iter, 100) == 0
+        if mod(iter, 1000) == 0
             fprintf('Iteration %d: Error = %.6f, Norm = %.6f\n', iter, errors(iter), norms(iter));
         end
     end

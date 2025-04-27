@@ -68,7 +68,7 @@ disp(['Mean Square Error for Gradient Descent Method: ', num2str(mse)]);
 A_1 = [train_data(:, 1:end-1), ones(m, 1)]; 
 training_target = train_data(:, end); % Labels vector
 learning_rate = 0.00001;
-max_iter = 5000;
+max_iter = 10000;
 gradient_prag = 1e-6;
 nr_neurons = 30; % Number of neurons in the hidden layer
 nr_of_examples = 5;
