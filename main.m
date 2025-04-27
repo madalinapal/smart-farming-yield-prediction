@@ -19,7 +19,7 @@ nr_neurons = 30; % Number of neurons in the hidden layer
     nr_neurons, learning_rate, max_iter, gradient_prag);
 
 % Graphics
-cumulative_times = cumsum(times); % More elegant than manual sum
+cumulative_times = cumsum(times); 
 
 figure('Name', 'Gradient Descent Method', 'Color', 'w');
 subplot(4, 1, 1);
