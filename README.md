@@ -1,4 +1,4 @@
-***Smart Farming Yield Prediction***
+# Smart Farming Yield Prediction
 
 This project addresses an *unconstrained optimization problem* in *deep learning*, focusing on a *regression task* to predict crop yields (kg/ha) using *machine learning*.
 
